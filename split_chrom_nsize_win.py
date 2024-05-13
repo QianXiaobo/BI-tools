@@ -1,5 +1,6 @@
+#! python3
 import sys
-nsize = sys.argv[1]
+nsize = int(sys.argv[1])
 chrom_file = sys.argv[2]
 
 with open(chrom_file, 'r') as fin:
@@ -11,5 +12,5 @@ with open(chrom_file, 'r') as fin:
     for i in range(window_num):
       s = 1 + nsize * i
       e = s + nsize - 1
-      print('{}\t{}\t{}'.format(chrom, s, e), file=fout, flush=False)
-    print('{}\t{}\t{}'.format(chrom, e+1, length), file=fout, flush=False) # the last window for each chromosome
+      print('{}\t{}\t{}'.format(chrom, s, e), flush=False)
+    print('{}\t{}\t{}'.format(chrom, e+1, length), flush=False) # the last window for each chromosome
